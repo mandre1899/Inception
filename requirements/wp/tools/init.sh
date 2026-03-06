@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 apk add lighttpd php fcgi php-cgi
 
