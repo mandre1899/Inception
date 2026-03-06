@@ -1,8 +1,6 @@
-#!/bin/bash
+!#/bin/bash
 
 apk update
-apk add nginx
-apk add openrc
 
 adduser -D -g 'www' www
 mkdir /www
@@ -13,8 +11,11 @@ mv index.html www/
 
 rm -rf /etc/nginx/nginx.conf
 mv nginx.conf /etc/nginx/
+chmod 777 /etc/nginx/nginx.conf
+
+whoami
 
 nginx -t
 
-rc-service nginx start
+nginx -gnginx -g 'daemon off;'
 
