@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  wp-app:
+    image: wp-image:latest
+    container_name: "wp-instance"
+  webserver:
+    image: nginx-image:latest
+    container_name: "nginx-instance"
+    ports:
+      - "80:80"
+      - "443:443"
+  database:
+    image: mariadb-image:latest
+    container_name: "mariadb-instance"
+
