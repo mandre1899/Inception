@@ -15,10 +15,12 @@ mv nginx.conf /etc/nginx/
 chmod 777 /etc/nginx/nginx.conf
 
 #Create SSL-certificate
-mkdir /etc/nginx/ssl
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/my.key -out /etc/nginx/ssl/my.crt
+mkdir -p /etc/nginx/ssl
+openssl req -x509 -noenc -days 365 -newkey rsa:2048 \
+    -keyout /etc/nginx/ssl/my.key -out /etc/nginx/ssl/my.crt \
+    -subj "/C=DE/ST=Baden-Württem-Berg/L=Heilbronn/O=42/CN=mandre.fr"
 
 nginx -t
 
-nginx -gnginx -g 'daemon off;'
+nginx -g 'daemon off;'
 
